@@ -22,9 +22,8 @@ export default function NavBar({ page = "hub" }: { page?: string }) {
             height={28}
             className="nav-avatar"
             style={{ borderColor: accent }}
-            priority
           />
-          A. Singh
+          Alakhsimar Singh
         </Link>
         <button
           className="nav-toggle"

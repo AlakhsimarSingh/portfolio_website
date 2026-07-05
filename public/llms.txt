@@ -50,7 +50,7 @@ Page: /research
 ## Freelance
 - Maan Travels — a production full-stack booking platform for a luxury chauffeur
   service, replacing a legacy PHP site. Passwordless device-trust authentication,
-  Lighthouse scores improved from 19/75/82/85 to 99/100/100/91.
+  Lighthouse scores improved from 19/65/80/50 to 99/96/96/100.
   Live: https://www.maantravels.com
   Code: https://github.com/AlakhsimarSingh/maan_travels.git
 Page: /freelance

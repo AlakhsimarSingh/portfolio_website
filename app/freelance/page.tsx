@@ -70,9 +70,9 @@ export default function FreelancePage() {
 
             <div className="readouts">
               <div className="readout"><div className="readout-label">Lighthouse — Performance</div><div className="readout-value">19 → 99</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — Accessibility</div><div className="readout-value">75 → 100</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — Best Practices</div><div className="readout-value">82 → 100</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — SEO</div><div className="readout-value">85 → 91</div></div>
+              <div className="readout"><div className="readout-label">Lighthouse — Accessibility</div><div className="readout-value">65 → 96</div></div>
+              <div className="readout"><div className="readout-label">Lighthouse — Best Practices</div><div className="readout-value">80 → 96</div></div>
+              <div className="readout"><div className="readout-label">Lighthouse — SEO</div><div className="readout-value">85 → 100</div></div>
             </div>
 
             <div className="case-card">
@@ -87,7 +87,7 @@ export default function FreelancePage() {
                 <ul>
                   <li>Designed and deployed a production-grade full-stack platform handling real bookings, fleet, payments, and admin operations end to end.</li>
                   <li>Architected a passwordless device-trust authentication system using browser fingerprinting, SHA-256 hashed tokens, and HttpOnly cross-origin cookies — zero passwords stored.</li>
-                  <li>Rebuilt the site with SSR/ISR and technical SEO, taking Lighthouse scores from 19/75/82/85 to 99/100/100/91.</li>
+                  <li>Rebuilt the site with SSR/ISR and technical SEO, taking Lighthouse scores from 19/65/80/50 to 99/96/96/100.</li>
                   <li>Built an admin panel that stores payment screenshots in access-controlled Supabase buckets with signed URLs, visible only to authenticated admins.</li>
                 </ul>
               </div>
