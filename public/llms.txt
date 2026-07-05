@@ -1,0 +1,67 @@
+# Alakhsimar Singh
+
+> Software engineer, machine learning researcher, freelance full-stack developer,
+> and graphic designer. Final-year B.Tech Computer Science Engineering student at
+> Dr. B. R. Ambedkar National Institute of Technology, Jalandhar (2022–2026).
+
+Alakhsimar Singh builds production software, conducts machine learning research
+in neuroimaging and computer vision, takes on freelance full-stack client work,
+and does graphic/video editing design work. This site is organized into four
+lenses, each a distinct profile of the same person.
+
+## Tech
+- Software Engineer Intern (Technical Development Program), Optum / UnitedHealth Group,
+  Summer 2025. Ranked 1st in the Ireland/India cohort and Global Runner-up among 300+
+  interns across 6 countries. Secured a Pre-Placement Offer.
+- Smart Notes Platform — a full-stack, AI-native personal knowledge base with
+  real-time collaboration (Yjs/Hocuspocus), a hybrid RAG chat pipeline (Groq +
+  Cohere reranking), local semantic embeddings, and a 3D knowledge graph.
+  Code: https://github.com/AlakhsimarSingh/smart_notes_platform.git
+- Skills: Java, C/C++, Python, JavaScript, TypeScript, React, Next.js, Node.js,
+  NestJS, Flask, FastAPI, PostgreSQL, MongoDB.
+Page: /tech
+
+## Research (Machine Learning)
+- MRP Undergraduate Research Assistant, Harvard Medical School & Massachusetts
+  General Hospital (2025–present) — machine learning classification of Jhana
+  meditation states from fMRI data.
+- Research Intern, Georgia Institute of Technology (2024–2025) — Complex PCA for
+  fMRI functional connectivity; work accepted at CNS 2025.
+- Publications:
+  1. "Machine Learning-Based Classification of Jhana Advanced Concentrative
+     Absorption Meditation (ACAM-J) using 7T fMRI" — Kumar, Yang, Singh, Li,
+     Sacchet. Under review at PLOS Biology.
+     Preprint: https://meditation.mgh.harvard.edu/files/Kumar_26_arXiv.pdf
+  2. "On the Role of Range in LiDAR-Based Snow-Pole Detection: A Principled Study
+     of Modality Fusion" — Tiwari, Singh, Rafiq, Singh, Seipel, Bavirisetti.
+     Under review at MFI 2026.
+     Code: https://github.com/AlakhsimarSingh/RangeModalitiesProject
+  3. "Network vs ROI Perspectives: Brain Connectivity Analysis using Complex
+     Principal Component Analysis" — accepted at CNS 2025 (OCNS), Florence, Italy.
+  4. "Visual Physiological Engagement Detection Network" — submitted to Elsevier,
+     under peer review.
+  5. "Multimodal Engagement Detection Systems and the Unseen Threat to Learner
+     Privacy" — book chapter in "The Dark Side of AI: Privacy Invasions and
+     Data Vulnerabilities."
+- Machine learning focus areas: deep learning, computer vision, CPCA, ensemble
+  classifiers, YOLO-based object detection, multimodal sensor fusion.
+Page: /research
+
+## Freelance
+- Maan Travels — a production full-stack booking platform for a luxury chauffeur
+  service, replacing a legacy PHP site. Passwordless device-trust authentication,
+  Lighthouse scores improved from 19/75/82/85 to 99/100/100/91.
+  Live: https://www.maantravels.com
+  Code: https://github.com/AlakhsimarSingh/maan_travels.git
+Page: /freelance
+
+## Design
+- Editing and graphic design portfolio in progress. Organized 30+ student
+  video-editing workshops (2023).
+Page: /design
+
+## Contact
+- Email: alakh124@gmail.com
+- GitHub: https://github.com/AlakhsimarSingh
+- LinkedIn: https://www.linkedin.com/in/alakhsimar/
+- LeetCode: https://leetcode.com/u/Alakhsimar_singh/
