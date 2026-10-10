@@ -27,12 +27,12 @@ export default function HubPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <div className="hero-kicker">Jalandhar, India — open to opportunities</div>
+              <div className="hero-kicker">Hyderabad, India: open to opportunities</div>
               <h1>Four traces,<br />one signal.</h1>
               <p className="hero-sub">
-                I&apos;m Alakhsimar Singh — a final-year Computer Science engineer who moves
+                I&apos;m Alakhsimar Singh, a software engineer at Optum who moves
                 between production software, <mark className="term">machine learning</mark> research
-                on brain signals, freelance client builds, and visual design. Different
+                , freelance client builds, and visual design. Different
                 instruments, same underlying discipline: read the signal, build the
                 system, ship it clean.
               </p>
@@ -82,7 +82,7 @@ export default function HubPage() {
               href="/freelance"
               label="Freelance"
               title="Full-Stack Client Work"
-              description="Built & deployed Maan Travels end-to-end — Lighthouse scores from 19/65/80/50 to 99/96/96/100."
+              description="Built & deployed Maan Travels (Lighthouse 19/75/82/85 → 99/100/100/91) and NUMEN, a streetwear e-commerce store, end-to-end."
               tracePath="M0,56 L60,56 L60,46 L120,46 L120,34 L180,34 L180,24 L240,24 L240,16 L300,16 L300,8 L400,4"
               index={2}
             />
