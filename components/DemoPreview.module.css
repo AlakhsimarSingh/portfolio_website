@@ -1,0 +1,93 @@
+.frame {
+  overflow: hidden;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border-radius: 10px;
+  background: var(--surface-solid, #0f100e);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.frame:hover,
+.frame:focus-within {
+  transform: translateY(-2px);
+  border-color: var(--moss, #8fae7a);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line, rgba(255, 255, 255, 0.1));
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.url {
+  overflow: hidden;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted, #a9a79d);
+}
+
+.viewport {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  background: #fff;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.overlay:hover,
+.overlay:focus-visible {
+  opacity: 1;
+}
+
+.pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: var(--moss, #8fae7a);
+  color: #0b0c0a;
+}
+
+/* Touch devices have no hover, so keep the hint visible. */
+@media (hover: none) {
+  .overlay {
+    opacity: 1;
+  }
+}

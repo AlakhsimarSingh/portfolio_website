@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import LighthouseCompare from "@/components/LighthouseCompare";
+import DemoPreview from "@/components/DemoPreview";
+import Testimonials from "@/components/Testimonials";
 import { jsonLdScript, softwareProjectSchema } from "@/lib/schema";
 import { PERSON, IMAGES } from "@/lib/site";
 
@@ -104,7 +107,7 @@ export default function FreelancePage() {
       <main>
         <div className="container">
 
-          <section className="block">
+          <section className="block" id="maan-travels">
             <div className="block-head"><h2>Case study: Maan Travels</h2></div>
 
             <p className="muted" style={{ maxWidth: "62ch", fontSize: "1rem", marginBottom: 24 }}>
@@ -115,12 +118,7 @@ export default function FreelancePage() {
               not a demo.
             </p>
 
-            <div className="readouts">
-              <div className="readout"><div className="readout-label">Lighthouse — Performance</div><div className="readout-value">19 → 99</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — Accessibility</div><div className="readout-value">75 → 100</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — Best Practices</div><div className="readout-value">82 → 100</div></div>
-              <div className="readout"><div className="readout-label">Lighthouse — SEO</div><div className="readout-value">85 → 91</div></div>
-            </div>
+            <LighthouseCompare />
 
             <div className="case-card">
               <div className="case-head">
@@ -150,7 +148,7 @@ export default function FreelancePage() {
             </div>
           </section>
 
-          <section className="block">
+          <section className="block" id="numen">
             <div className="block-head"><h2>Case study: NUMEN</h2></div>
 
             <p className="muted" style={{ maxWidth: "62ch", fontSize: "1rem", marginBottom: 24 }}>
@@ -199,6 +197,8 @@ export default function FreelancePage() {
             </div>
           </section>
 
+          <Testimonials />
+
           <section className="block" id="demos">
             <div className="block-head"><h2>Demo builds</h2></div>
 
@@ -221,6 +221,7 @@ export default function FreelancePage() {
                   className="case-card"
                   style={{ display: "flex", flexDirection: "column", gap: 12 }}
                 >
+                  <DemoPreview url={demo.url} title={demo.name} />
                   <h3>{demo.name}</h3>
                   <p className="muted" style={{ fontSize: "0.94rem", flex: 1 }}>{demo.blurb}</p>
                   <div className="tags">

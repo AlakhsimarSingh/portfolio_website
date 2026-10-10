@@ -1,0 +1,162 @@
+.wrap {
+  margin-bottom: 24px;
+}
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border-radius: 12px;
+  background: var(--surface, rgba(255, 255, 255, 0.03));
+  user-select: none;
+}
+
+.layer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 44px 12px 20px;
+  background: var(--surface-solid, #0f100e);
+}
+
+.after {
+  position: absolute;
+  inset: 0;
+}
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ringWrap {
+  position: relative;
+  width: 100%;
+  max-width: 88px;
+}
+
+.ring {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 6;
+}
+
+.arc {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.score {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--muted, #a9a79d);
+}
+
+.tag {
+  position: absolute;
+  top: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.55);
+  color: #e8e6dc;
+  pointer-events: none;
+}
+
+.tagLeft {
+  left: 12px;
+}
+
+.tagRight {
+  right: 12px;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--moss, #8fae7a);
+  pointer-events: none;
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--moss, #8fae7a);
+  color: #0b0c0a;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Transparent native range input covers the stage: gives mouse, touch and keyboard control. */
+.range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+.range:focus-visible + * {
+  outline: none;
+}
+
+.stage:has(.range:focus-visible) {
+  outline: 2px solid var(--moss, #8fae7a);
+  outline-offset: 2px;
+}
+
+.caption {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--muted, #a9a79d);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

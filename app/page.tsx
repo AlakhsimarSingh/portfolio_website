@@ -27,12 +27,12 @@ export default function HubPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <div className="hero-kicker">Hyderabad, India: open to opportunities</div>
+              <div className="hero-kicker">Jalandhar, India — open to opportunities</div>
               <h1>Four traces,<br />one signal.</h1>
               <p className="hero-sub">
-                I&apos;m Alakhsimar Singh, a software engineer at Optum who moves
+                I&apos;m Alakhsimar Singh — a software engineer at Optum who moves
                 between production software, <mark className="term">machine learning</mark> research
-                , freelance client builds, and visual design. Different
+                on brain signals, freelance client builds, and visual design. Different
                 instruments, same underlying discipline: read the signal, build the
                 system, ship it clean.
               </p>

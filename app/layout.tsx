@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_URL, PERSON, IMAGES } from "@/lib/site";
 import { personSchema, websiteSchema, jsonLdScript } from "@/lib/schema";
+import CommandPalette from "@/components/CommandPalette";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={jsonLdScript(websiteSchema())}
         />
         {children}
+        <CommandPalette />
       </body>
     </html>
   );
