@@ -132,7 +132,7 @@ export default function FreelancePage() {
             </p>
 
             <div className="readouts">
-              <div className="readout"><div className="readout-label">Live catalog</div><div className="readout-value">880+ products</div></div>
+              <div className="readout"><div className="readout-label">Live catalog</div><div className="readout-value">1500+ products</div></div>
               <div className="readout"><div className="readout-label">Categories</div><div className="readout-value">8</div></div>
               <div className="readout"><div className="readout-label">Payments</div><div className="readout-value">Card · UPI</div></div>
               <div className="readout"><div className="readout-label">Pricing</div><div className="readout-value">Multi-currency</div></div>
