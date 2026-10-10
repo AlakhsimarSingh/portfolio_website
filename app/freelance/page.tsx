@@ -53,9 +53,9 @@ export default function FreelancePage() {
         <div className="container">
           <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Freelance", path: "/freelance" }]} />
           <div className="hero-kicker">Freelance / Full-Stack Client Work</div>
-          <h1>From legacy PHP<br />to production, solo.</h1>
+          <h1>Real products.<br />Built and shipped solo.</h1>
           <p className="hero-sub">
-            I take client projects end to end — architecture, auth, payments, database,
+            I take client projects end to end, architecture, auth, payments, database,
             admin tooling, deployment, and the unglamorous performance work that makes a
             site actually fast. Below are two production builds: Maan Travels, a
             chauffeur booking platform, and NUMEN, a streetwear e-commerce store.
@@ -79,7 +79,7 @@ export default function FreelancePage() {
               A luxury chauffeur service needed to replace an aging, legacy PHP site
               with something that could run real bookings, fleet management, and
               payments without falling over. I designed, built, and deployed the
-              entire platform — this is a production system serving real customers,
+              entire platform, this is a production system serving real customers,
               not a demo.
             </p>
 
@@ -101,7 +101,7 @@ export default function FreelancePage() {
               <div className="entry-body">
                 <ul>
                   <li>Designed and deployed a production-grade full-stack platform handling real bookings, fleet, payments, and admin operations end to end.</li>
-                  <li>Architected a passwordless device-trust authentication system using browser fingerprinting, SHA-256 hashed tokens, and HttpOnly cross-origin cookies — zero passwords stored.</li>
+                  <li>Architected a passwordless device-trust authentication system using browser fingerprinting, SHA-256 hashed tokens, and HttpOnly cross-origin cookies, zero passwords stored.</li>
                   <li>Rebuilt the site with SSR/ISR and technical SEO, taking Lighthouse scores from 19/75/82/85 to 99/100/100/91.</li>
                   <li>Built an admin panel that stores payment screenshots in access-controlled Supabase buckets with signed URLs, visible only to authenticated admins.</li>
                 </ul>
@@ -122,8 +122,8 @@ export default function FreelancePage() {
             <div className="block-head"><h2>Case study: NUMEN</h2></div>
 
             <p className="muted" style={{ maxWidth: "62ch", fontSize: "1rem", marginBottom: 24 }}>
-              NUMEN sells streetwear and accessories — sneakers, watches, perfumes,
-              shades, bags — to customers around the world. That means prices in
+              NUMEN sells streetwear and accessories, sneakers, watches, perfumes,
+              shades, bags, to customers around the world. That means prices in
               different currencies, shipping costs that depend on what is in the box
               and where it is going, and a catalog too big to manage one product at a
               time. I built the whole platform around those constraints: storefront,
@@ -134,7 +134,7 @@ export default function FreelancePage() {
             <div className="readouts">
               <div className="readout"><div className="readout-label">Live catalog</div><div className="readout-value">880+ products</div></div>
               <div className="readout"><div className="readout-label">Categories</div><div className="readout-value">8</div></div>
-              <div className="readout"><div className="readout-label">Payments</div><div className="readout-value">Card · UPI · COD</div></div>
+              <div className="readout"><div className="readout-label">Payments</div><div className="readout-value">Card · UPI</div></div>
               <div className="readout"><div className="readout-label">Pricing</div><div className="readout-value">Multi-currency</div></div>
             </div>
 
@@ -148,10 +148,10 @@ export default function FreelancePage() {
               </div>
               <div className="entry-body">
                 <ul>
-                  <li>Built a production e-commerce platform end to end — catalog, cart, multi-step checkout, and admin operations — for a streetwear and accessories store spanning shoes, watches, perfumes, shades, bags, and more.</li>
-                  <li>Integrated Razorpay for card, UPI, and cash-on-delivery payments, with server-side signature verification so an order is never marked paid on the client's word alone.</li>
+                  <li>Built a production e-commerce platform end to end, catalog, cart, multi-step checkout, and admin operations, for a streetwear and accessories store spanning shoes, watches, perfumes, shades, bags, and more.</li>
+                  <li>Integrated Razorpay for card, and UPI payments, with server-side signature verification so an order is never marked paid on the client's word alone.</li>
                   <li>Engineered a multi-currency pricing engine, so shoppers can browse and pay in their own currency with prices kept consistent from catalog to final billing.</li>
-                  <li>Built a weight- and destination-aware dynamic shipping calculator, applied consistently across cart, checkout, and the final invoice.</li>
+                  <li>Built a weight, and destination-aware dynamic shipping calculator, applied consistently across cart, checkout, and the final invoice.</li>
                   <li>Shipped an Excel-style bulk product editor for the admin panel, so a catalog of hundreds of items can be updated in one pass instead of one product at a time.</li>
                 </ul>
               </div>
@@ -171,11 +171,11 @@ export default function FreelancePage() {
             <div className="block-head"><h2>How I work with clients</h2></div>
             <div className="entry" style={{ gridTemplateColumns: "170px 1fr" }}>
               <div className="entry-time">Scope</div>
-              <div><p style={{ fontSize: "0.94rem", color: "#C9C7BE" }}>Happy to take a project from a rough idea to a deployed, maintained product — or step into an existing codebase for a specific migration, performance pass, or feature.</p></div>
+              <div><p style={{ fontSize: "0.94rem", color: "#C9C7BE" }}>Happy to take a project from a rough idea to a deployed, maintained product, or step into an existing codebase for a specific migration, performance pass, or feature.</p></div>
             </div>
             <div className="entry" style={{ gridTemplateColumns: "170px 1fr" }}>
               <div className="entry-time">Ownership</div>
-              <div><p style={{ fontSize: "0.94rem", color: "#C9C7BE" }}>I handle architecture, auth/security, payments, database design, deployment, and admin tooling myself — one point of contact, not a hand-off between specialists.</p></div>
+              <div><p style={{ fontSize: "0.94rem", color: "#C9C7BE" }}>I handle architecture, auth/security, payments, database design, deployment, and admin tooling myself, one point of contact, not a hand-off between specialists.</p></div>
             </div>
             <div className="entry" style={{ gridTemplateColumns: "170px 1fr" }}>
               <div className="entry-time">Get started</div>
