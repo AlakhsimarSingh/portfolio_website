@@ -39,12 +39,13 @@ export default function TechPage() {
         <div className="container">
           <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Tech", path: "/tech" }]} />
           <div className="hero-kicker">Tech / Software Engineering</div>
-          <h1>Systems that hold up<br />in production.</h1>
-          <p className="hero-sub">
-            Computer Science engineer at NIT Jalandhar with a Technical Development
-            Program pedigree from Optum (UnitedHealth Group) — shipping typed,
-            tested, deployed software rather than prototypes.
-          </p>
+          <h1>Software that ships<br />and keeps running.</h1>
+            <p className="hero-sub">
+              I'm a software engineer who builds full-stack and AI-powered systems,
+              from enterprise data tools at Optum, where I ranked first in my cohort
+              and earned a pre-placement offer, to a real-time, RAG-driven knowledge
+              platform of my own. Typed, tested, and deployed, not just prototyped.
+            </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={`mailto:${PERSON.email}`}>Get in touch</a>
             <a className="btn btn-ghost" href={PERSON.github} target="_blank" rel="noopener">GitHub</a>
