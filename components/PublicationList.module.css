@@ -1,0 +1,65 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.chip {
+  padding: 5px 13px;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.14));
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted, #a9a79d);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  border-color: var(--moss, #8fae7a);
+  color: #fff;
+}
+
+.chipActive {
+  border-color: var(--moss, #8fae7a);
+  background: rgba(143, 174, 122, 0.12);
+  color: var(--moss, #8fae7a);
+}
+
+.count {
+  margin-left: 3px;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 2px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.published {
+  color: var(--moss, #8fae7a);
+}
+
+.accepted {
+  color: #0cce6b;
+}
+
+.review {
+  color: #ffa400;
+}
+
+.venue {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--muted, #a9a79d);
+}

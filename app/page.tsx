@@ -1,105 +1,61 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import LensCard from "@/components/LensCard";
-import { PERSON, IMAGES } from "@/lib/site";
+import { PERSON } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: `${PERSON.name} — Software Engineer, ML Researcher & Full-Stack Developer`,
-  description:
-    "Alakhsimar Singh's portfolio: software engineering at Optum, machine learning research in neuroimaging and computer vision, freelance full-stack development, and design.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    url: "/",
-    title: `${PERSON.name} — Portfolio`,
-    images: [{ url: IMAGES.ogImage, width: 1200, height: 630, alt: PERSON.name }],
-  },
-  twitter: { images: [IMAGES.ogImage] },
+export type PaletteItem = {
+  id: string;
+  label: string;
+  group: string;
+  href: string; // "/path", "/path#hash", "https://…" or "mailto:…"
+  keywords?: string; // extra words the search should match
+  hint?: string; // small right-aligned text
 };
 
-export default function HubPage() {
-  return (
-    <div data-page="hub">
-      <NavBar page="hub" />
+// Keep items ordered by group: the palette lists groups in the order they first appear here.
+export const PALETTE_ITEMS: PaletteItem[] = [
+  // ---- Pages ----
+  { id: "home", label: "Home", group: "Pages", href: "/", keywords: "hub landing" },
+  { id: "tech", label: "Tech — Software Engineering", group: "Pages", href: "/tech", keywords: "optum experience skills" },
+  { id: "research", label: "Research — Applied Machine Learning", group: "Pages", href: "/research", keywords: "papers publications fmri neuroscience lidar computer vision" },
+  { id: "freelance", label: "Freelance — Full-Stack Client Work", group: "Pages", href: "/freelance", keywords: "clients web development" },
+  { id: "design", label: "Design — Editing & Graphic Design", group: "Pages", href: "/design", keywords: "video editing graphics" },
 
-      <header className="hero">
-        <div className="container">
-          <div className="hero-grid">
-            <div>
-              <div className="hero-kicker">Jalandhar, India — open to opportunities</div>
-              <h1>Four traces,<br />one signal.</h1>
-              <p className="hero-sub">
-                I&apos;m Alakhsimar Singh — a software engineer at Optum who moves
-                between production software, <mark className="term">machine learning</mark> research
-                on brain signals, freelance client builds, and visual design. Different
-                instruments, same underlying discipline: read the signal, build the
-                system, ship it clean.
-              </p>
-              <div className="hero-actions">
-                <a className="btn btn-primary" href={`mailto:${PERSON.email}`}>Email me</a>
-                <a className="btn btn-ghost" href={PERSON.github} target="_blank" rel="noopener">GitHub</a>
-                <a className="btn btn-ghost" href={PERSON.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-              </div>
-            </div>
-            <div className="hero-photo-wrap">
-              <Image
-                src={IMAGES.profileSquare}
-                alt={`${PERSON.name}, ${PERSON.jobTitles[0]}`}
-                width={480}
-                height={480}
-                className="hero-photo"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </header>
+  // ---- Projects ----
+  { id: "maan", label: "Maan Travels — case study", group: "Projects", href: "/freelance#maan-travels", keywords: "chauffeur booking lighthouse auth", hint: "Freelance" },
+  { id: "numen", label: "NUMEN — case study", group: "Projects", href: "/freelance#numen", keywords: "ecommerce streetwear razorpay store", hint: "Freelance" },
+  { id: "smart-notes", label: "Smart Notes Platform", group: "Projects", href: "/tech", keywords: "rag yjs knowledge graph ai notes", hint: "Tech" },
+  { id: "publications", label: "Publications", group: "Projects", href: "/research#publications", keywords: "papers research accepted under review", hint: "Research" },
+  { id: "demos", label: "Demo builds", group: "Projects", href: "/freelance#demos", keywords: "previews concept sites", hint: "Freelance" },
 
-      <main>
-        <div className="container">
-          <div className="lens-grid">
-            <LensCard
-              lens="tech"
-              href="/tech"
-              label="Tech"
-              title="Software Engineering"
-              description="Enterprise systems at Optum, plus Smart Notes — a full-stack AI-native platform with real-time collaboration and RAG."
-              tracePath="M0,32 L50,32 L50,10 L95,10 L95,54 L140,54 L140,10 L185,10 L185,32 L235,32 L235,16 L280,16 L280,48 L325,48 L325,32 L400,32"
-              index={0}
-            />
-            <LensCard
-              lens="research"
-              href="/research"
-              label="Research"
-              title="Machine Learning & Brain Dynamics"
-              description="fMRI and machine learning research at Harvard Medical School / MGH, Georgia Tech, and beyond — 5 papers in review or published."
-              tracePath="M0,32 C20,10 35,54 55,30 C70,12 85,50 105,28 C125,8 140,52 160,34 C185,14 205,48 230,30 C255,14 275,46 300,30 C325,16 345,44 370,30 L400,32"
-              index={1}
-            />
-            <LensCard
-              lens="freelance"
-              href="/freelance"
-              label="Freelance"
-              title="Full-Stack Client Work"
-              description="Built & deployed Maan Travels (Lighthouse 19/75/82/85 → 99/100/100/91) and NUMEN, a streetwear e-commerce store, end-to-end."
-              tracePath="M0,56 L60,56 L60,46 L120,46 L120,34 L180,34 L180,24 L240,24 L240,16 L300,16 L300,8 L400,4"
-              index={2}
-            />
-            <LensCard
-              lens="design"
-              href="/design"
-              label="Design"
-              title="Editing & Graphic Design"
-              description="Organized 30+ student video-editing workshops. Portfolio landing soon."
-              tracePath="M0,40 C30,20 60,50 90,30 C120,12 150,46 180,26 C210,10 240,44 270,28 C300,14 330,40 360,26 L400,32"
-              index={3}
-            />
-          </div>
-        </div>
-      </main>
+  // ---- Live sites ----
+  { id: "live-maan", label: "Maan Travels — live site", group: "Live sites", href: "https://www.maantravels.com", hint: "↗" },
+  { id: "live-numen", label: "NUMEN — live store", group: "Live sites", href: "https://www.invitedsonly.com", hint: "↗" },
+  { id: "demo-ironroute", label: "IronRoute Exports — demo", group: "Live sites", href: "https://tools-export-eight.vercel.app/", keywords: "export spare parts", hint: "↗" },
+  { id: "demo-meridian", label: "Meridian Industrial Exports — demo", group: "Live sites", href: "https://demo1-meridian.vercel.app/", keywords: "export industrial", hint: "↗" },
+  { id: "demo-platform", label: "Global Export Sales Platform — demo", group: "Live sites", href: "https://premium-export-six.vercel.app", keywords: "rfq b2b catalog", hint: "↗" },
+  { id: "demo-boothill", label: "Boothill Arms Co. — demo", group: "Live sites", href: "https://boothill-arms-co-five.vercel.app/", keywords: "ecommerce store", hint: "↗" },
 
-      <Footer note="B.Tech CSE, Dr. B. R. Ambedkar NIT Jalandhar · 2022–2026" />
-    </div>
-  );
-}
+  // ---- Papers ----
+  // Add one entry per paper so people can jump straight to it.
+  {
+    id: "paper-visuophysioenet",
+    label: "VisuoPhysioENet — Multimodal Engagement Detection",
+    group: "Papers",
+    href: "https://arxiv.org/pdf/2409.16126",
+    keywords: "arxiv engagement e-learning multimodal paper",
+    hint: "arXiv ↗",
+  },
+  {
+    id: "paper-snowpole",
+    label: "Role of Range in LiDAR Snow-Pole Detection — ICECER 2026",
+    group: "Papers",
+    href: "https://github.com/AlakhsimarSingh/RangeModalitiesProject",
+    keywords: "lidar snow pole range sensor fusion autonomous driving icecer accepted",
+    hint: "Code ↗",
+  },
+  // { id: "paper-xyz", label: "Paper title", group: "Papers", href: "https://…", keywords: "venue topic", hint: "NeurIPS ↗" },
+
+  // ---- Links ----
+  { id: "email", label: "Email me", group: "Links", href: `mailto:${PERSON.email}`, keywords: "contact hire" },
+  { id: "github", label: "GitHub", group: "Links", href: PERSON.github, hint: "↗" },
+  { id: "linkedin", label: "LinkedIn", group: "Links", href: PERSON.linkedin, hint: "↗" },
+  { id: "leetcode", label: "LeetCode", group: "Links", href: PERSON.leetcode, hint: "↗" },
+];

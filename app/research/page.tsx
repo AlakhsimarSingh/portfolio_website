@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PublicationList from "@/components/PublicationList";
 import { jsonLdScript, scholarlyArticleSchema } from "@/lib/schema";
 import { PERSON, IMAGES } from "@/lib/site";
+import { publications, STATUS_LABEL, TOPICS } from "@/lib/Research";
 
 export const metadata: Metadata = {
-  title: "Research — Machine Learning & Brain Dynamics",
+  title: "Research — Applied Machine Learning",
   description:
-    "Alakhsimar Singh's machine learning research: fMRI classification of Jhana meditation at Harvard Medical School / MGH, LiDAR sensor fusion for autonomous driving, and brain connectivity analysis at Georgia Tech.",
+    "Alakhsimar Singh's machine learning research: fMRI classification of Jhana meditation at Harvard Medical School / MGH, LiDAR sensor fusion for autonomous driving (accepted at ICECER 2026), multimodal engagement detection, and brain connectivity analysis at Georgia Tech.",
   keywords: [
     "Machine Learning",
     "Machine Learning Researcher",
-    "fMRI",
     "Computer Vision",
+    "LiDAR",
+    "Sensor Fusion",
+    "fMRI",
     "Neuroimaging",
     "Deep Learning",
   ],
@@ -26,56 +30,56 @@ export const metadata: Metadata = {
   twitter: { images: [IMAGES.ogImage] },
 };
 
-const publications = [
+const projects = [
   {
-    year: "2026",
-    type: "Preprint · Under review at PLOS Biology",
-    title: "Machine Learning-Based Classification of Jhana Advanced Concentrative Absorption Meditation (ACAM-J) using 7T fMRI",
-    authors: "Kumar, P., Yang, W. F. Z., Singh, A., Li, X., Sacchet, M. D.",
-    summary:
-      "Uses fMRI-derived regional homogeneity and ensemble machine learning classifiers to distinguish advanced Jhana meditation states from control conditions, reaching 66.82% accuracy with prefrontal and anterior cingulate regions driving model decisions.",
-    link: "https://meditation.mgh.harvard.edu/files/Kumar_26_arXiv.pdf",
-    linkLabel: "Preprint",
+    title: "LiDAR Modality Fusion for Snow-Pole Detection",
+    meta: "Computer vision · YOLOv11 · PCA · Sensor fusion · Accepted, ICECER 2026",
+    links: [{ label: "GitHub", href: "https://github.com/AlakhsimarSingh/RangeModalitiesProject" }],
+    results: [
+      { label: "Best detection", value: "91.0 mAP50" },
+      { label: "Best localization", value: "45.0 mAP50-95" },
+      { label: "Range variance", value: "< 2%" },
+    ],
+    bullets: [
+      "Evaluated single-modality learning, direct 4-channel input, and multiple fusion strategies for LiDAR-based snow-pole detection on a Nordic winter dataset.",
+      "Proposed Quad-Modal PCA Fusion (QM-PCA), reaching 91.0 mAP50, and LDA-Guided PCA Fusion improving localization precision to 45.0 mAP50-95.",
+      "Foreground-biased PCA analysis showed range contributes under 2% of pole-discriminative variance versus intensity-based channels, so more modalities do not automatically mean more useful information.",
+    ],
   },
   {
-    year: "2026",
-    type: "Under review at MFI 2026",
-    title: "On the Role of Range in LiDAR-Based Snow-Pole Detection: A Principled Study of Modality Fusion",
-    authors: "Tiwari, S., Singh, A., Rafiq, M. I., Singh, N., Seipel, S., Bavirisetti, D. P.",
-    summary:
-      "A systematic study of LiDAR range as a detection modality for autonomous driving, proposing three fusion methods — including Quad-Modal PCA Fusion reaching 91.0 mAP50 — and showing range contributes under 2% of pole-discriminative variance versus intensity-based cues.",
-    link: "https://github.com/AlakhsimarSingh/RangeModalitiesProject",
-    linkLabel: "Code & docs",
+    title: "VisuoPhysioENet",
+    meta: "Deep learning · Physiological signal processing · Computer vision · Sept 2024",
+    links: [{ label: "Read the paper", href: "https://arxiv.org/pdf/2409.16126" }],
+    results: [
+      { label: "Accuracy", value: "63.02%" },
+      { label: "Dataset", value: "DAiSEE" },
+      { label: "Modalities", value: "Visual + physiological" },
+    ],
+    bullets: [
+      "Multimodal architecture fusing visual and physiological signals for engagement detection in e-learning.",
+      "Reached 63.02% accuracy on the DAiSEE dataset, outperforming state-of-the-art models.",
+      "Used parallel processing (ThreadPoolExecutor) to cut training time and improve throughput.",
+    ],
   },
   {
-    year: "2025",
-    type: "Conference poster · CNS 2025 (OCNS), Florence, Italy",
-    title: "Network vs ROI Perspectives: Brain Connectivity Analysis using Complex Principal Component Analysis",
-    authors: "Kumar, P., Singh, A., Li, X., Keilholz, S., Schumacher, E. H.",
-    summary:
-      "Accepted at the 34th Annual Computational Neuroscience Meeting; compares network-level and region-of-interest perspectives on brain connectivity using CPCA.",
-    link: null,
-    linkLabel: null,
-  },
-  {
-    year: "2025",
-    type: "Journal article · Submitted to Elsevier, under peer review",
-    title: "Visual Physiological Engagement Detection Network",
-    authors: "Singh, A., Goyal, K., Verma, N., Kumar, P., Li, X., Singh, A.",
-    summary: null,
-    link: null,
-    linkLabel: null,
-  },
-  {
-    year: "2024",
-    type: "Book chapter",
-    title: "Multimodal Engagement Detection Systems and the Unseen Threat to Learner Privacy",
-    authors: "Singh, A., Verma, N., Goyal, K., Kumar, P., Li, X., Singh, A.",
-    summary: 'Published in "The Dark Side of AI: Privacy Invasions and Data Vulnerabilities."',
-    link: null,
-    linkLabel: null,
+    title: "fMRI Functional Connectivity Analysis",
+    meta: "Python · Signal processing · CPCA · Nilearn · MATLAB · Aug 2024 – Apr 2025",
+    links: [{ label: "GitHub", href: "https://github.com/MIntelligence-Group/DBCATS" }],
+    results: [
+      { label: "Brain regions", value: "246" },
+      { label: "Subjects", value: "50 (HCP)" },
+      { label: "Conditions", value: "Rest · 0-back · 2-back" },
+    ],
+    bullets: [
+      "Processed time-series fMRI data across 246 brain regions and 50 subjects from the HCP dataset.",
+      "Applied CPCA and QPP detection to surface spatiotemporal connectivity patterns.",
+      "Showed the CPCA pipeline generalizes across rest, 0-back, and 2-back task conditions.",
+    ],
   },
 ];
+
+const acceptedOrPublished = publications.filter((p) => p.status !== "review").length;
+const underReview = publications.filter((p) => p.status === "review").length;
 
 export default function ResearchPage() {
   return (
@@ -88,9 +92,9 @@ export default function ResearchPage() {
             scholarlyArticleSchema({
               name: p.title,
               authors: p.authors.split(", "),
-              description: p.summary || p.type,
+              description: p.summary || `${STATUS_LABEL[p.status]}: ${p.venue}`,
               url: p.link || "https://alakhsimarsingh.com/research",
-              status: p.type,
+              status: `${STATUS_LABEL[p.status]} · ${p.venue}`,
               about: ["Machine Learning"],
             })
           )}
@@ -101,16 +105,17 @@ export default function ResearchPage() {
       <header className="hero">
         <div className="container">
           <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Research", path: "/research" }]} />
-          <div className="hero-kicker">Research / Machine Learning &amp; Brain Dynamics</div>
-          <h1>Reading signal out of<br />noisy brains.</h1>
+          <div className="hero-kicker">Research / Applied Machine Learning</div>
+          <h1>Turning messy data<br />into reliable models.</h1>
           <p className="hero-sub">
-            I work at the intersection of neuroimaging and <mark className="term">machine learning</mark> —
-            building pipelines and classifiers that turn raw fMRI volumes and sensor data
-            into patterns a lab can actually reason about, across meditation, engagement,
-            and autonomous-driving perception studies.
+            I build <mark className="term">machine learning</mark> systems for high-dimensional,
+            noisy data (fMRI volumes, LiDAR point clouds, video, physiological signals) and
+            study what the models actually learn. My work so far spans neuroimaging,
+            autonomous-driving perception, and multimodal learning.
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={`mailto:${PERSON.email}`}>Get in touch</a>
+            <a className="btn btn-ghost" href="#publications">Publications</a>
             <a className="btn btn-ghost" href="https://github.com/AlakhsimarSingh/DBCATS.git" target="_blank" rel="noopener">Research GitHub</a>
           </div>
         </div>
@@ -119,7 +124,7 @@ export default function ResearchPage() {
       <main>
         <div className="container">
 
-          <section className="block">
+          <section className="block" id="experience">
             <div className="block-head"><h2>Research experience</h2></div>
 
             <div className="entry">
@@ -132,7 +137,7 @@ export default function ResearchPage() {
                     <li>Investigating alterations in brain dynamics during Jhana meditation using advanced neuroimaging and fMRI analysis pipelines.</li>
                     <li>Built pipelines for upsampling, classification, and visualization of pre-processed gradient data; produced group-level brain activation plots.</li>
                     <li>Conducted lesion overlap analysis at voxel and network levels to study connectivity disruptions.</li>
-                    <li>Co-authored a machine learning classification study (ensemble classifiers on fMRI regional homogeneity) reaching 66.82% accuracy distinguishing meditation states — see publications below.</li>
+                    <li>Co-authored a machine learning classification study (ensemble classifiers on fMRI regional homogeneity) reaching 66.82% accuracy distinguishing meditation states. See publications below.</li>
                   </ul>
                 </div>
               </div>
@@ -157,83 +162,50 @@ export default function ResearchPage() {
             </div>
           </section>
 
-          <section className="block">
+          <section className="block" id="publications">
             <div className="block-head"><h2>Publications</h2></div>
 
-            {publications.map((p) => (
-              <div className="entry" style={{ gridTemplateColumns: "170px 1fr" }} key={p.title}>
-                <div className="entry-time">
-                  {p.year}
-                  <br />
-                  <span className="muted" style={{ fontSize: 11 }}>{p.type}</span>
+            <div className="readouts">
+              <div className="readout"><div className="readout-label">Papers &amp; posters</div><div className="readout-value">{publications.length}</div></div>
+              <div className="readout"><div className="readout-label">Accepted / published</div><div className="readout-value">{acceptedOrPublished}</div></div>
+              <div className="readout"><div className="readout-label">Under review</div><div className="readout-value">{underReview}</div></div>
+              <div className="readout"><div className="readout-label">Research areas</div><div className="readout-value">{TOPICS.length}</div></div>
+            </div>
+
+            <PublicationList items={publications} />
+          </section>
+
+          <section className="block" id="projects">
+            <div className="block-head"><h2>Selected projects</h2></div>
+
+            {projects.map((project) => (
+              <div className="case-card" key={project.title}>
+                <div className="case-head">
+                  <h3>{project.title}</h3>
+                  <div className="case-links">
+                    {project.links.map((l) => (
+                      <a key={l.href} className="btn btn-ghost" href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <div className="entry-title">{p.title}</div>
-                  <div className="entry-org">{p.authors}</div>
-                  {p.summary && <p className="muted" style={{ fontSize: "0.92rem", marginTop: 8 }}>{p.summary}</p>}
-                  {p.link && (
-                    <div className="entry-links">
-                      <a href={p.link} target="_blank" rel="noopener">{p.linkLabel} →</a>
+                <p className="muted" style={{ marginBottom: 14 }}>{project.meta}</p>
+                <div className="readouts" style={{ marginBottom: 14 }}>
+                  {project.results.map((r) => (
+                    <div className="readout" key={r.label}>
+                      <div className="readout-label">{r.label}</div>
+                      <div className="readout-value">{r.value}</div>
                     </div>
-                  )}
+                  ))}
+                </div>
+                <div className="entry-body">
+                  <ul>
+                    {project.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
-          </section>
-
-          <section className="block">
-            <div className="block-head"><h2>Selected projects</h2></div>
-
-            <div className="case-card">
-              <div className="case-head">
-                <h3>VisioPhysioENet</h3>
-                <div className="case-links">
-                  <a className="btn btn-ghost" href="https://arxiv.org/pdf/2409.16126" target="_blank" rel="noopener">Read the paper</a>
-                </div>
-              </div>
-              <p className="muted" style={{ marginBottom: 14 }}>Deep learning · Physiological signal processing · Computer vision · Sept 2024</p>
-              <div className="entry-body">
-                <ul>
-                  <li>Multimodal architecture fusing visual and physiological signals for engagement detection in e-learning.</li>
-                  <li>Reached 63.02% accuracy on the DAiSEE dataset, outperforming state-of-the-art models.</li>
-                  <li>Used parallel processing (ThreadPoolExecutor) to cut training time and improve throughput.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="case-card">
-              <div className="case-head">
-                <h3>fMRI Functional Connectivity Analysis</h3>
-                <div className="case-links">
-                  <a className="btn btn-ghost" href="https://github.com/MIntelligence-Group/DBCATS" target="_blank" rel="noopener">GitHub</a>
-                </div>
-              </div>
-              <p className="muted" style={{ marginBottom: 14 }}>Python · Signal processing · CPCA · Nilearn · MATLAB · Aug 2024 – Apr 2025</p>
-              <div className="entry-body">
-                <ul>
-                  <li>Processed time-series fMRI data across 246 brain regions and 50 subjects from the HCP dataset.</li>
-                  <li>Applied CPCA and QPP detection to surface spatiotemporal connectivity patterns.</li>
-                  <li>Showed the CPCA pipeline generalizes across rest, 0-back, and 2-back task conditions.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="case-card">
-              <div className="case-head">
-                <h3>LiDAR Modality Fusion for Snow-Pole Detection</h3>
-                <div className="case-links">
-                  <a className="btn btn-ghost" href="https://github.com/AlakhsimarSingh/RangeModalitiesProject" target="_blank" rel="noopener">GitHub</a>
-                </div>
-              </div>
-              <p className="muted" style={{ marginBottom: 14 }}>Computer vision · YOLOv11 · PCA · Sensor fusion · Under review, MFI 2026</p>
-              <div className="entry-body">
-                <ul>
-                  <li>Evaluated single-modality learning, direct 4-channel input, and multiple fusion strategies for LiDAR-based snow-pole detection on a Nordic winter dataset.</li>
-                  <li>Proposed Quad-Modal PCA Fusion (QM-PCA), reaching 91.0 mAP50, and LDA-Guided PCA Fusion improving localization precision to 45.0 mAP50-95.</li>
-                  <li>Foreground-biased PCA analysis showed range contributes under 2% of pole-discriminative variance versus intensity-based channels.</li>
-                </ul>
-              </div>
-            </div>
           </section>
 
           <section className="block" style={{ borderBottom: "none" }}>

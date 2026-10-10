@@ -14,7 +14,7 @@ export const PALETTE_ITEMS: PaletteItem[] = [
   // ---- Pages ----
   { id: "home", label: "Home", group: "Pages", href: "/", keywords: "hub landing" },
   { id: "tech", label: "Tech — Software Engineering", group: "Pages", href: "/tech", keywords: "optum experience skills" },
-  { id: "research", label: "Research — Machine Learning & Brain Dynamics", group: "Pages", href: "/research", keywords: "papers publications fmri neuroscience" },
+  { id: "research", label: "Research — Applied Machine Learning", group: "Pages", href: "/research", keywords: "papers publications fmri neuroscience lidar computer vision" },
   { id: "freelance", label: "Freelance — Full-Stack Client Work", group: "Pages", href: "/freelance", keywords: "clients web development" },
   { id: "design", label: "Design — Editing & Graphic Design", group: "Pages", href: "/design", keywords: "video editing graphics" },
 
@@ -22,6 +22,7 @@ export const PALETTE_ITEMS: PaletteItem[] = [
   { id: "maan", label: "Maan Travels — case study", group: "Projects", href: "/freelance#maan-travels", keywords: "chauffeur booking lighthouse auth", hint: "Freelance" },
   { id: "numen", label: "NUMEN — case study", group: "Projects", href: "/freelance#numen", keywords: "ecommerce streetwear razorpay store", hint: "Freelance" },
   { id: "smart-notes", label: "Smart Notes Platform", group: "Projects", href: "/tech", keywords: "rag yjs knowledge graph ai notes", hint: "Tech" },
+  { id: "publications", label: "Publications", group: "Projects", href: "/research#publications", keywords: "papers research accepted under review", hint: "Research" },
   { id: "demos", label: "Demo builds", group: "Projects", href: "/freelance#demos", keywords: "previews concept sites", hint: "Freelance" },
 
   // ---- Live sites ----
@@ -41,6 +42,14 @@ export const PALETTE_ITEMS: PaletteItem[] = [
     href: "https://arxiv.org/pdf/2409.16126",
     keywords: "arxiv engagement e-learning multimodal paper",
     hint: "arXiv ↗",
+  },
+  {
+    id: "paper-snowpole",
+    label: "Role of Range in LiDAR Snow-Pole Detection — ICECER 2026",
+    group: "Papers",
+    href: "https://github.com/AlakhsimarSingh/RangeModalitiesProject",
+    keywords: "lidar snow pole range sensor fusion autonomous driving icecer accepted",
+    hint: "Code ↗",
   },
   // { id: "paper-xyz", label: "Paper title", group: "Papers", href: "https://…", keywords: "venue topic", hint: "NeurIPS ↗" },
 
