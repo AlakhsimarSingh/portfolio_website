@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SmartNotesDiagram from "@/components/SmartNotesDiagram";
 import { jsonLdScript, softwareProjectSchema } from "@/lib/schema";
+import { hasPublicFile } from "@/lib/files";
 import { PERSON, IMAGES } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,6 +19,45 @@ export const metadata: Metadata = {
   },
   twitter: { images: [IMAGES.ogImage] },
 };
+
+const ragSteps = [
+  { label: "1 · Expand", value: "1 → 4 queries", detail: "Llama 3.3 70B rewrites the question three ways, so a note on \"React performance\" is found by \"frontend optimization\"." },
+  { label: "2 · Retrieve", value: "Top 20", detail: "Hybrid score per chunk: 0.7 × best cosine similarity across variants + 0.3 × BM25-style keyword score." },
+  { label: "3 · Rerank", value: "Top 6", detail: "Cohere rerank-v3.5 scores each (question, chunk) pair jointly; falls back to hybrid scores if Cohere fails." },
+  { label: "4 · Answer", value: "Cited", detail: "Streamed answer grounded only in the sources, with inline [n] citations mapped back to notes." },
+];
+
+const decisions = [
+  {
+    label: "Separate collab process",
+    decision: "Hocuspocus runs as its own process instead of a NestJS module. It owns its WebSocket server and lifecycle, which fights Nest's request-per-handler model more than it helps.",
+    tradeoff: "The owner / editor / viewer check is re-implemented there against Prisma, so the two must stay in sync.",
+  },
+  {
+    label: "Read-only at the protocol",
+    decision: "Viewers connect with Hocuspocus's readOnly flag set, so the server refuses their Yjs updates. Hiding the toolbar alone would still let a modified client write.",
+  },
+  {
+    label: "Two forms of one note",
+    decision: "Every debounced save stores the Yjs binary state and an HTML copy, so search, AI summaries and public links read plain HTML without knowing Yjs exists. The first collaborative open seeds the Yjs doc from that HTML, which fixed shared notes opening blank.",
+  },
+  {
+    label: "Local embeddings",
+    decision: "MiniLM-L6 (384-d) runs in-process through Transformers.js: no per-call cost or rate limits, and note text never leaves the server to be embedded.",
+    tradeoff: "Retrieval is a brute-force cosine scan over a user's chunks. Fine at personal scale; thousands of notes would need an ANN index such as pgvector.",
+  },
+  {
+    label: "AI off the request path",
+    decision: "Saving a note enqueues a BullMQ job; the worker summarizes, re-chunks (200 words, 40 overlap) and embeds in one transaction, then notifies the API to push the update over Socket.IO.",
+    tradeoff: "Summaries and search lag a save by a few seconds.",
+  },
+  {
+    label: "404, not 403",
+    decision: "Requests for a private note you can't access return \"not found\". Confirming that it exists leaks more than a flat 404.",
+  },
+];
+
+const hasCV = hasPublicFile(PERSON.cv);
 
 export default function TechPage() {
   return (
@@ -48,6 +89,9 @@ export default function TechPage() {
             </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={`mailto:${PERSON.email}`}>Get in touch</a>
+            {hasCV && (
+              <a className="btn btn-ghost" href={PERSON.cv} target="_blank" rel="noopener">Résumé (PDF)</a>
+            )}
             <a className="btn btn-ghost" href={PERSON.github} target="_blank" rel="noopener">GitHub</a>
             <a className="btn btn-ghost" href={PERSON.leetcode} target="_blank" rel="noopener">LeetCode</a>
           </div>
@@ -111,15 +155,40 @@ export default function TechPage() {
               <p className="muted" style={{ marginBottom: 14 }}>
                 Next.js · NestJS · TypeScript · PostgreSQL · Yjs/Hocuspocus · Groq · Cohere
               </p>
+              <SmartNotesDiagram />
               <div className="entry-body">
                 <ul>
                   <li>A full-stack, AI-native personal knowledge base built incrementally from a basic CRUD app into a production-grade platform — three concurrent Node processes (NestJS API, a BullMQ worker for AI jobs, and a standalone Hocuspocus server for real-time sync).</li>
                   <li>Real-time collaborative editing via Yjs CRDTs, with JWT-authenticated WebSocket connections, protocol-level read-only enforcement for viewers, and live presence cursors.</li>
                   <li>A full RAG chat pipeline over the notes: multi-query expansion, chunk-level retrieval, hybrid semantic + BM25 search, and Cohere cross-encoder reranking, with inline citations and source attribution.</li>
                   <li>Local 384-dimensional semantic embeddings (Xenova/MiniLM) power both search and an explorable 3D knowledge graph, where each note&apos;s size and glow are driven by a computed recency/connection &quot;vitality&quot; score.</li>
-                  <li>Role-based sharing (owner/editor/viewer) with email invites and public links, enforced by a single shared access-control service used by both the REST API and the collaboration server.</li>
+                  <li>Role-based sharing (owner/editor/viewer) with email invites and public links, enforced by a single access-control service across the REST API and checked again by the collaboration server on every WebSocket connection.</li>
                 </ul>
               </div>
+
+              <h4 className="case-subhead">How the RAG chat answers a question</h4>
+              <div className="readouts pipeline">
+                {ragSteps.map((s) => (
+                  <div className="readout" key={s.label}>
+                    <div className="readout-label">{s.label}</div>
+                    <div className="readout-value">{s.value}</div>
+                    <p className="pipeline-detail">{s.detail}</p>
+                  </div>
+                ))}
+              </div>
+
+              <h4 className="case-subhead">Decisions &amp; tradeoffs</h4>
+              {decisions.map((d) => (
+                <div className="entry" key={d.label}>
+                  <div className="entry-time">{d.label}</div>
+                  <div>
+                    <p className="decision">{d.decision}</p>
+                    {d.tradeoff && (
+                      <p className="decision-tradeoff"><span>Tradeoff</span> {d.tradeoff}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="tag-group" style={{ marginTop: 28 }}>
@@ -127,7 +196,8 @@ export default function TechPage() {
               <div className="tags">
                 <span className="tag">Next.js</span><span className="tag">NestJS</span><span className="tag">TypeScript</span>
                 <span className="tag">PostgreSQL</span><span className="tag">Prisma</span><span className="tag">Redis / BullMQ</span>
-                <span className="tag">Yjs</span><span className="tag">Hocuspocus</span><span className="tag">Three.js</span>
+                <span className="tag">Yjs</span><span className="tag">Hocuspocus</span><span className="tag">TipTap</span>
+                <span className="tag">Socket.IO</span><span className="tag">Three.js</span><span className="tag">Transformers.js</span>
                 <span className="tag">Groq</span><span className="tag">Cohere Rerank</span>
               </div>
             </div>
@@ -213,7 +283,7 @@ export default function TechPage() {
         </div>
       </main>
 
-      <Footer note="1500+ rated on LeetCode · English, French, Hindi, Punjabi" />
+      <Footer note="Global Runner-up, Optum TDP Shark Tank 2025 · English, French, Hindi, Punjabi" />
     </div>
   );
 }

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { existsSync } from "fs";
-import path from "path";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PublicationList from "@/components/PublicationList";
 import { jsonLdScript, scholarlyArticleSchema } from "@/lib/schema";
+import { hasPublicFile } from "@/lib/files";
 import { PERSON, IMAGES } from "@/lib/site";
 import { publications, STATUS_LABEL, TOPICS } from "@/lib/Research";
 
@@ -108,7 +107,7 @@ const acceptedOrPublished = publications.filter((p) => p.status !== "review").le
 const underReview = publications.filter((p) => p.status === "review").length;
 
 // The CV button appears automatically once the PDF is dropped into /public.
-const hasCV = existsSync(path.join(process.cwd(), "public", PERSON.cv));
+const hasCV = hasPublicFile(PERSON.cv);
 
 export default function ResearchPage() {
   return (

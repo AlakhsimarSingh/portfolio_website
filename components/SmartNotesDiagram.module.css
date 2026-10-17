@@ -1,0 +1,57 @@
+.figure {
+  margin: 0 0 24px;
+}
+
+.scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 12px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.box {
+  fill: var(--panel-2);
+  stroke: var(--line);
+}
+
+.title {
+  fill: var(--paper);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.line {
+  fill: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.label {
+  fill: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+
+.arrows path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+}
+
+.head {
+  fill: var(--accent);
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
