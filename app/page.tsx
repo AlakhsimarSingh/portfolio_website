@@ -30,8 +30,8 @@ export default function HubPage() {
               <div className="hero-kicker">Jalandhar, India — open to opportunities</div>
               <h1>Four traces,<br />one signal.</h1>
               <p className="hero-sub">
-                I&apos;m Alakhsimar Singh — a software engineer at Optum who moves
-                between production software, <mark className="term">machine learning</mark> research
+                I&apos;m Alakhsimar Singh — a software engineer on Optum&apos;s OIS DevOps
+                team (Technical Development Program) who moves between production software, <mark className="term">machine learning</mark> research
                 on brain signals, freelance client builds, and visual design. Different
                 instruments, same underlying discipline: read the signal, build the
                 system, ship it clean.
@@ -64,7 +64,7 @@ export default function HubPage() {
               href="/tech"
               label="Tech"
               title="Software Engineering"
-              description="Enterprise systems at Optum, plus Smart Notes — a full-stack AI-native platform with real-time collaboration and RAG."
+              description="TDP Associate on Optum's OIS DevOps team, plus Smart Notes — a full-stack AI-native platform with real-time collaboration and RAG."
               tracePath="M0,32 L50,32 L50,10 L95,10 L95,54 L140,54 L140,10 L185,10 L185,32 L235,32 L235,16 L280,16 L280,48 L325,48 L325,32 L400,32"
               index={0}
             />

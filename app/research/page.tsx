@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { existsSync } from "fs";
+import path from "path";
+import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -30,11 +33,27 @@ export const metadata: Metadata = {
   twitter: { images: [IMAGES.ogImage] },
 };
 
-const projects = [
+type Figure = { src: string; width: number; height: number; alt: string; caption: string };
+
+const projects: {
+  title: string;
+  meta: string;
+  links: { label: string; href: string }[];
+  figure?: Figure;
+  results: { label: string; value: string }[];
+  bullets: string[];
+}[] = [
   {
     title: "LiDAR Modality Fusion for Snow-Pole Detection",
     meta: "Computer vision · YOLOv11 · PCA · Sensor fusion · Accepted, ICECER 2026",
     links: [{ label: "GitHub", href: "https://github.com/AlakhsimarSingh/RangeModalitiesProject" }],
+    figure: {
+      src: "/images/research/lidar-fusion-architecture.png",
+      width: 1685,
+      height: 810,
+      alt: "Three LiDAR fusion architectures feeding YOLOv11n: (a) QM-PCA fuses reflectance, signal, NearIR and range into 3 PCA channels; (b) LG-PCA uses LDA foreground/background separation plus PCA residuals; (c) range injected mid-network through a convolutional range encoder.",
+      caption: "Fusion strategies compared: (a) Quad-Modal PCA, (b) LDA-Guided PCA, (c) mid-network range injection.",
+    },
     results: [
       { label: "Best detection", value: "91.0 mAP50" },
       { label: "Best localization", value: "45.0 mAP50-95" },
@@ -47,9 +66,16 @@ const projects = [
     ],
   },
   {
-    title: "VisuoPhysioENet",
+    title: "VisioPhysioENet",
     meta: "Deep learning · Physiological signal processing · Computer vision · Sept 2024",
-    links: [{ label: "Read the paper", href: "https://arxiv.org/pdf/2409.16126" }],
+    links: [{ label: "Read the paper", href: "https://arxiv.org/abs/2409.16126" }],
+    figure: {
+      src: "/images/research/visiophysioenet-architecture.png",
+      width: 2019,
+      height: 678,
+      alt: "VisioPhysioENet pipeline: video frames are split into physiological signals (heart rate, peak intervals, systolic and diastolic peak sums) and visual features (eye category, head position, gaze direction), classified by random forest and AdaBoost ensembles, then stacked with logistic regression into four engagement levels.",
+      caption: "Architecture: per-modality feature extraction and ensembles, combined by stacked generalization into four engagement levels.",
+    },
     results: [
       { label: "Accuracy", value: "63.02%" },
       { label: "Dataset", value: "DAiSEE" },
@@ -81,6 +107,9 @@ const projects = [
 const acceptedOrPublished = publications.filter((p) => p.status !== "review").length;
 const underReview = publications.filter((p) => p.status === "review").length;
 
+// The CV button appears automatically once the PDF is dropped into /public.
+const hasCV = existsSync(path.join(process.cwd(), "public", PERSON.cv));
+
 export default function ResearchPage() {
   return (
     <div data-page="research">
@@ -91,7 +120,7 @@ export default function ResearchPage() {
           dangerouslySetInnerHTML={jsonLdScript(
             scholarlyArticleSchema({
               name: p.title,
-              authors: p.authors.split(", "),
+              authors: p.authors,
               description: p.summary || `${STATUS_LABEL[p.status]}: ${p.venue}`,
               url: p.link || "https://alakhsimarsingh.com/research",
               status: `${STATUS_LABEL[p.status]} · ${p.venue}`,
@@ -115,14 +144,35 @@ export default function ResearchPage() {
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={`mailto:${PERSON.email}`}>Get in touch</a>
+            {hasCV && (
+              <a className="btn btn-ghost" href={PERSON.cv} target="_blank" rel="noopener">CV (PDF)</a>
+            )}
+            <a className="btn btn-ghost" href={PERSON.scholar} target="_blank" rel="noopener">Google Scholar</a>
             <a className="btn btn-ghost" href="#publications">Publications</a>
-            <a className="btn btn-ghost" href="https://github.com/AlakhsimarSingh/DBCATS.git" target="_blank" rel="noopener">Research GitHub</a>
           </div>
         </div>
       </header>
 
       <main>
         <div className="container">
+
+          <section className="block" id="interests">
+            <div className="block-head"><h2>Research interests</h2></div>
+            <div className="research-statement">
+              <p>
+                I&apos;m drawn to learning from signals that are high-dimensional, noisy, and
+                expensive to collect, and to checking what a model has actually learned
+                before trusting it. The questions I want to pursue next:
+              </p>
+              <div className="entry-body">
+                <ul>
+                  <li>How well do representations learned from fMRI generalize across subjects, sessions, and scanners, and which brain regions genuinely drive a classifier&apos;s decision?</li>
+                  <li>When does adding a sensing modality add information rather than noise, and how should fusion be designed to tell the difference?</li>
+                  <li>How do we build analysis pipelines that stay reproducible across conditions and datasets instead of being tuned to one?</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
           <section className="block" id="experience">
             <div className="block-head"><h2>Research experience</h2></div>
@@ -152,11 +202,11 @@ export default function ResearchPage() {
                   <ul>
                     <li>Developed pipelines for processing fMRI (.nii) data and applied Complex PCA (CPCA) for voxel- and network-level connectivity analysis.</li>
                     <li>Demonstrated reproducibility of the CPCA analysis across multiple subjects and experimental conditions.</li>
-                    <li>Research outcomes accepted at CNS 2025 (Cognitive Neuroscience Society Annual Meeting).</li>
+                    <li>Research outcomes accepted as a poster at CNS 2025 (34th Annual Computational Neuroscience Meeting, OCNS), Florence.</li>
                   </ul>
                 </div>
                 <div className="entry-links">
-                  <a href="https://github.com/AlakhsimarSingh/DBCATS.git" target="_blank" rel="noopener">GitHub — DBCATS →</a>
+                  <a href="https://github.com/MIntelligence-Group/DBCATS" target="_blank" rel="noopener">GitHub — DBCATS →</a>
                 </div>
               </div>
             </div>
@@ -189,6 +239,20 @@ export default function ResearchPage() {
                   </div>
                 </div>
                 <p className="muted" style={{ marginBottom: 14 }}>{project.meta}</p>
+                {project.figure && (
+                  <figure className="research-figure">
+                    <div className="research-figure-img">
+                      <Image
+                        src={project.figure.src}
+                        width={project.figure.width}
+                        height={project.figure.height}
+                        alt={project.figure.alt}
+                        sizes="(max-width: 1080px) 100vw, 1000px"
+                      />
+                    </div>
+                    <figcaption>{project.figure.caption}</figcaption>
+                  </figure>
+                )}
                 <div className="readouts" style={{ marginBottom: 14 }}>
                   {project.results.map((r) => (
                     <div className="readout" key={r.label}>

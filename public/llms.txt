@@ -1,8 +1,10 @@
 # Alakhsimar Singh
 
 > Software engineer, machine learning researcher, freelance full-stack developer,
-> and graphic designer. Final-year B.Tech Computer Science Engineering student at
-> Dr. B. R. Ambedkar National Institute of Technology, Jalandhar (2022-2026).
+> and graphic designer. Technical Development Program Associate on the OIS DevOps
+> team at Optum (UnitedHealth Group) since July 2026. B.Tech Computer Science
+> Engineering, Dr. B. R. Ambedkar National Institute of Technology, Jalandhar
+> (2022-2026, CGPA 8.26).
 
 Alakhsimar Singh builds production software, conducts machine learning research
 in neuroimaging and computer vision, takes on freelance full-stack client work,
@@ -11,26 +13,28 @@ lenses, each a distinct profile of the same person.
 
 ## Tech
 
-- [Tech profile](/tech): Software engineering — the Optum Technical Development Program internship and the Smart Notes Platform project.
-- [Optum internship](/tech): Software Engineer Intern, Technical Development Program, Summer 2025. Ranked 1st in the Ireland/India cohort and Global Runner-up among 300+ interns across 6 countries; secured a Pre-Placement Offer.
+- [Tech profile](/tech): Software engineering at Optum and the Smart Notes Platform project.
+- [Optum, full-time](/tech): Technical Development Program Associate, OIS DevOps team, Optum (UnitedHealth Group), from 28 July 2026.
+- [Optum internship](/tech): Software Engineer Intern, Technical Development Program, Summer 2025. Ranked 1st in the Ireland/India cohort and Global Runner-up among 300+ interns across 6 countries; secured a Pre-Placement Offer, which converted to the full-time role.
 - [Smart Notes Platform (code)](https://github.com/AlakhsimarSingh/smart_notes_platform.git): A full-stack, AI-native personal knowledge base with real-time collaboration (Yjs/Hocuspocus), a hybrid RAG chat pipeline (Groq + Cohere reranking), local semantic embeddings, and a 3D knowledge graph.
 
 ## Research (Machine Learning)
 
-- [Research profile](/research): Machine learning research in neuroimaging, fMRI, and computer vision.
-- [ACAM-J fMRI classification (preprint)](https://meditation.mgh.harvard.edu/files/Kumar_26_arXiv.pdf): "Machine Learning-Based Classification of Jhana Advanced Concentrative Absorption Meditation (ACAM-J) using 7T fMRI" — Kumar, Yang, Singh, Li, Sacchet. Under review at PLOS Biology.
-- [LiDAR snow-pole detection (code)](https://github.com/AlakhsimarSingh/RangeModalitiesProject): "On the Role of Range in LiDAR-Based Snow-Pole Detection: A Principled Study of Modality Fusion" — Tiwari, Singh, Rafiq, Singh, Seipel, Bavirisetti. Under review at MFI 2026.
-- [DBCATS — fMRI connectivity research (code)](https://github.com/AlakhsimarSingh/DBCATS.git): Georgia Institute of Technology research internship — Complex PCA (CPCA) for fMRI functional connectivity, accepted at CNS 2025.
-- [VisioPhysioENet (paper)](https://arxiv.org/pdf/2409.16126): Multimodal engagement detection network fusing visual and physiological signals for e-learning.
-- [Network vs ROI brain connectivity (research profile)](/research): "Network vs ROI Perspectives: Brain Connectivity Analysis using Complex Principal Component Analysis" — accepted at CNS 2025 (OCNS), Florence, Italy.
-- [Visual Physiological Engagement Detection Network (research profile)](/research): Journal article submitted to Elsevier, under peer review.
-- [Multimodal engagement detection & learner privacy (research profile)](/research): Book chapter in "The Dark Side of AI: Privacy Invasions and Data Vulnerabilities."
+- [Research profile](/research): Machine learning research in neuroimaging, fMRI, and computer vision, with research interests, publications (BibTeX available), and project figures.
+- [Google Scholar](https://scholar.google.com/citations?user=7nPhgUYAAAAJ): Publication and citation profile.
+- [Jhana meditation fMRI classification (arXiv:2602.13008)](https://arxiv.org/abs/2602.13008): "Machine Learning-Based Classification of Jhana Advanced Concentrative Absorption Meditation Using 7 Tesla Functional Magnetic Resonance Imaging" — Kumar, Yang, Singh, Li, Sacchet. Harvard Medical School / MGH. Under review at PLOS Biology.
+- [LiDAR snow-pole detection (code)](https://github.com/AlakhsimarSingh/RangeModalitiesProject): "On the Role of Range in LiDAR-Based Snow-Pole Detection: A Principled Study of Modality Fusion" — Tiwari, Singh, Rafiq, Singh, Seipel, Bavirisetti. Accepted at ICECER 2026, Istanbul, Türkiye.
+- [Network vs ROI brain connectivity (code: DBCATS)](https://github.com/MIntelligence-Group/DBCATS): "Network vs ROI Perspectives: Brain Connectivity Analysis using Complex Principal Component Analysis" — Kumar, Singh, Li, Keilholz, Schumacher. Georgia Institute of Technology research internship; poster accepted at CNS 2025 (34th Annual Computational Neuroscience Meeting, OCNS), Florence, Italy.
+- [VisioPhysioENet (arXiv:2409.16126)](https://arxiv.org/abs/2409.16126): "VisioPhysioENet: Visual Physiological Engagement Detection Network" — Singh (first author), Goyal, Verma, Kumar, Li, Singh. Multimodal engagement detection fusing visual and physiological signals for e-learning; journal version submitted to Elsevier, under peer review.
+- [Multimodal engagement detection & learner privacy (research profile)](/research): First-author book chapter in "The Dark Side of AI: Privacy Invasions and Data Vulnerabilities."
 
 ## Freelance
 
-- [Freelance profile](/freelance): Full-stack client work and freelance case studies.
-- [Maan Travels — live site](https://www.maantravels.com): Production full-stack booking platform for a luxury chauffeur service, replacing a legacy PHP site. Passwordless device-trust authentication.
+- [Freelance profile](/freelance): Full-stack client work, case studies, and demo builds.
+- [Maan Travels — live site](https://www.maantravels.com): Production full-stack booking platform for a luxury chauffeur service, replacing a legacy PHP site. Passwordless device-trust authentication; Lighthouse 19/75/82/85 → 99/100/100/91.
 - [Maan Travels — code](https://github.com/AlakhsimarSingh/maan_travels.git): Next.js 15, TypeScript, PostgreSQL, Prisma, Supabase implementation.
+- [NUMEN — live store](https://www.invitedsonly.com): Production streetwear and accessories e-commerce platform with 1500+ products, Razorpay card/UPI payments with server-side verification, multi-currency pricing, weight- and destination-aware shipping, and an Excel-style admin bulk editor.
+- [NUMEN — code](https://github.com/AlakhsimarSingh/numen-store): Next.js 15, TypeScript, Tailwind CSS, PostgreSQL, Prisma, Zustand, Supabase implementation.
 
 ## Design
 

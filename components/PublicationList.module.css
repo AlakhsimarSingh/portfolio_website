@@ -63,3 +63,53 @@
   letter-spacing: 0.02em;
   color: var(--muted, #a9a79d);
 }
+.firstAuthor {
+  color: var(--cyan, #5fd4d0);
+}
+
+.me {
+  color: var(--paper, #e9e6dc);
+  font-weight: 600;
+}
+
+.citeBtn,
+.copyBtn {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--accent-dim);
+  padding: 0 0 1px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.citeBtn:hover,
+.citeBtn:focus-visible,
+.copyBtn:hover,
+.copyBtn:focus-visible {
+  border-color: var(--accent);
+}
+
+.bib {
+  position: relative;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+}
+
+.bib pre {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c9c7be;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}

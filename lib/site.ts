@@ -17,14 +17,18 @@ export const PERSON = {
     "Graphic Designer",
   ],
   alumniOf: "Dr. B. R. Ambedkar National Institute of Technology, Jalandhar",
+  worksFor: "Optum",
   sameAs: [
     "https://github.com/AlakhsimarSingh",
     "https://www.linkedin.com/in/alakhsimar/",
     "https://leetcode.com/u/Alakhsimar_singh/",
+    "https://scholar.google.com/citations?user=7nPhgUYAAAAJ",
   ],
   github: "https://github.com/AlakhsimarSingh",
   linkedin: "https://www.linkedin.com/in/alakhsimar/",
   leetcode: "https://leetcode.com/u/Alakhsimar_singh/",
+  scholar: "https://scholar.google.com/citations?user=7nPhgUYAAAAJ",
+  cv: "/cv.pdf", // drop the file at public/cv.pdf; the Research page shows the button only when it exists
 };
 
 export const IMAGES = {

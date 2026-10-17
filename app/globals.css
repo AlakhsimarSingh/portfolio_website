@@ -363,3 +363,10 @@ section.block{ padding: 56px 0; border-bottom: 1px solid var(--line-soft); }
 .coming-soon-panel{ border: 1px dashed var(--line); padding: 60px 32px; text-align: center; margin: 40px 0; }
 .coming-soon-panel h3{ font-size: 1.4rem; margin-bottom: 10px; }
 .coming-soon-panel p{ color: var(--muted); max-width: 46ch; margin: 0 auto; }
+.research-statement{ max-width: 68ch; }
+.research-statement p{ color: #C9C7BE; font-size: 1rem; margin-bottom: 14px; }
+
+.research-figure{ margin: 0 0 18px; }
+.research-figure-img{ background: #fff; border: 1px solid var(--line); padding: 12px; }
+.research-figure-img img{ display: block; width: 100%; height: auto; }
+.research-figure figcaption{ margin-top: 8px; font-size: 0.82rem; color: var(--muted); }

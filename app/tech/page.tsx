@@ -8,7 +8,7 @@ import { PERSON, IMAGES } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Tech — Software Engineering",
   description:
-    "Alakhsimar Singh's software engineering work: the Optum Technical Development Program internship and the Smart Notes Platform, a full-stack AI-native app with real-time collaboration and RAG.",
+    "Alakhsimar Singh's software engineering work: Technical Development Program Associate on Optum's OIS DevOps team, the TDP internship that led to it, and the Smart Notes Platform, a full-stack AI-native app with real-time collaboration and RAG.",
   alternates: { canonical: "/tech" },
   openGraph: {
     url: "/tech",
@@ -42,8 +42,8 @@ export default function TechPage() {
           <h1>Software that ships<br />and keeps running.</h1>
             <p className="hero-sub">
               I'm a software engineer who builds full-stack and AI-powered systems,
-              from enterprise data tools at Optum, where I ranked first in my cohort
-              and earned a pre-placement offer, to a real-time, RAG-driven knowledge
+              from enterprise systems at Optum, where I ranked first in my intern cohort
+              and now work full-time on the OIS DevOps team, to a real-time, RAG-driven knowledge
               platform of my own. Typed, tested, and deployed, not just prototyped.
             </p>
           <div className="hero-actions">
@@ -59,6 +59,19 @@ export default function TechPage() {
 
           <section className="block">
             <div className="block-head"><h2>Experience</h2></div>
+
+            <div className="entry">
+              <div className="entry-time">Jul 2026 –<br />Present</div>
+              <div>
+                <div className="entry-title">Technical Development Program Associate — OIS DevOps</div>
+                <div className="entry-org">Optum (UnitedHealth Group)</div>
+                <div className="entry-body">
+                  <ul>
+                    <li>Joined full-time on 28 July 2026 through the pre-placement offer earned during the 2025 internship, as part of the OIS DevOps team.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
             <div className="entry">
               <div className="entry-time">Jun 2025 –<br />Aug 2025</div>
@@ -185,7 +198,7 @@ export default function TechPage() {
               <div className="entry-time">2022 –<br />2026</div>
               <div>
                 <div className="entry-title">B.Tech, Computer Science Engineering</div>
-                <div className="entry-org">Dr. B. R. Ambedkar National Institute of Technology, Jalandhar — CGPA 8.15 (7th sem)</div>
+                <div className="entry-org">Dr. B. R. Ambedkar National Institute of Technology, Jalandhar — CGPA 8.26</div>
               </div>
             </div>
             <div className="entry">

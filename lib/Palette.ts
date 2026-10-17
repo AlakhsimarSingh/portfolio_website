@@ -36,10 +36,18 @@ export const PALETTE_ITEMS: PaletteItem[] = [
   // ---- Papers ----
   // Add one entry per paper so people can jump straight to it.
   {
-    id: "paper-visuophysioenet",
-    label: "VisuoPhysioENet — Multimodal Engagement Detection",
+    id: "paper-jhana",
+    label: "ML Classification of Jhana Meditation using 7T fMRI",
     group: "Papers",
-    href: "https://arxiv.org/pdf/2409.16126",
+    href: "https://arxiv.org/abs/2602.13008",
+    keywords: "arxiv fmri meditation jhana harvard mgh neuroimaging plos biology",
+    hint: "arXiv ↗",
+  },
+  {
+    id: "paper-visiophysioenet",
+    label: "VisioPhysioENet — Multimodal Engagement Detection",
+    group: "Papers",
+    href: "https://arxiv.org/abs/2409.16126",
     keywords: "arxiv engagement e-learning multimodal paper",
     hint: "arXiv ↗",
   },
@@ -57,5 +65,6 @@ export const PALETTE_ITEMS: PaletteItem[] = [
   { id: "email", label: "Email me", group: "Links", href: `mailto:${PERSON.email}`, keywords: "contact hire" },
   { id: "github", label: "GitHub", group: "Links", href: PERSON.github, hint: "↗" },
   { id: "linkedin", label: "LinkedIn", group: "Links", href: PERSON.linkedin, hint: "↗" },
+  { id: "scholar", label: "Google Scholar", group: "Links", href: PERSON.scholar, keywords: "citations papers", hint: "↗" },
   { id: "leetcode", label: "LeetCode", group: "Links", href: PERSON.leetcode, hint: "↗" },
 ];

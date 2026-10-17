@@ -19,6 +19,10 @@ export function personSchema() {
       "@type": "CollegeOrUniversity",
       name: PERSON.alumniOf,
     },
+    worksFor: {
+      "@type": "Organization",
+      name: PERSON.worksFor,
+    },
     knowsAbout: [
       "Software Engineering",
       "Machine Learning",
